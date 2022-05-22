@@ -1,27 +1,123 @@
 import React from "react";
 import auth from "../../firebase.init";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import { useForm } from "react-hook-form";
+import Loading from "../Shared/Loading";
 const Login = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  if (user) {
-    console.log(user);
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  let signInError;
+
+  if (user || googleUser) {
+    console.log(googleUser);
   }
+  if (loading || googleLoading) {
+    return <Loading></Loading>;
+  }
+
+  if (error || googleError) {
+    signInError = (
+      <p className="text-red-500">
+        <small>{error?.message || googleError?.message}</small>
+      </p>
+    );
+  }
+  const onSubmit = (data) => {
+    signInWithEmailAndPassword(data.email, data.password);
+  };
   return (
     <div className="flex h-screen justify-center items-center">
-      <div class="card lg:card-side bg-base-100 shadow-xl">
-        <figure>
-          <img
-            className="w-48 h-48"
-            src="https://img.freepik.com/free-vector/access-control-system-abstract-concept_335657-3180.jpg?w=740&t=st=1653235548~exp=1653236148~hmac=bdbcb42d49653b3f09bdd334609a43d408f57aff37f4f33bc67bd607d2af1c51"
-            alt="Album"
-          />
-        </figure>
-        <div class="card-body w-52 h-52">
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card-body">
           <h2 class="text-center font-bold text-2xl">Log In!</h2>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div class="form-control w-full max-w-xs">
+              <label class="label">
+                <span class="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="Your Email"
+                class="input input-bordered w-full max-w-xs"
+                {...register("email", {
+                  required: {
+                    value: true,
+                    message: "Please put Email first",
+                  },
+                  pattern: {
+                    value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                    message: "That's Not A valid Email",
+                  },
+                })}
+              />
+              <label class="label">
+                {errors.email?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
+                )}
+                {errors.email?.type === "pattern" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.email.message}
+                  </span>
+                )}
+              </label>
+            </div>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+              <input
+                type="password"
+                placeholder="Password"
+                className="input input-bordered w-full max-w-xs"
+                {...register("password", {
+                  required: {
+                    value: true,
+                    message: "Password is Required",
+                  },
+                  minLength: {
+                    value: 6,
+                    message: "Must be 6 characters or longer",
+                  },
+                })}
+              />
+              <label className="label">
+                {errors.password?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
+                {errors.password?.type === "minLength" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
+              </label>
+            </div>
+
+            {signInError}
+
+            <input
+              className="btn w-full max-w-xs bg-primary"
+              type="submit"
+              value="Login"
+            />
+          </form>
           <div class="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
-            class="btn btn-outline btn-xs sm:btn-sm md:btn-md  btn-info lg:btn-md"
+            class="btn w-full max-w-xs btn-secondary text-black"
           >
             Continue With Google
           </button>
