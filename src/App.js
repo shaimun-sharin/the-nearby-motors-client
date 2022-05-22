@@ -4,6 +4,7 @@ import Conatct from "./Pages/Home/Conatct";
 import Home from "./Pages/Home/Home";
 import Summary from "./Pages/Home/Summary";
 import Login from "./Pages/Login/Login";
+import SignUp from "./Pages/Login/SignUp";
 import Header from "./Pages/Shared/Header";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="summary" element={<Summary></Summary>}></Route>
         <Route path="contact" element={<Conatct></Conatct>}></Route>
         <Route path="login" element={<Login></Login>}></Route>
+        <Route path="signup" element={<SignUp></SignUp>}></Route>
       </Routes>
     </div>
   );
