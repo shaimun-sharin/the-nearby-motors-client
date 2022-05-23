@@ -41,6 +41,7 @@ const SignUp = () => {
   }
   if (user || googleUser) {
     navigate("/home");
+    console.log(user);
   }
 
   const onSubmit = async (data) => {
