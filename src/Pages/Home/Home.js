@@ -1,9 +1,10 @@
 import React from "react";
+import Summary from "./Summary";
 
 const Home = () => {
   return (
     <div>
-      <h3>This is home</h3>
+      <Summary></Summary>
     </div>
   );
 };

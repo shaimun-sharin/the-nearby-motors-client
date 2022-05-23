@@ -3,9 +3,13 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
+import Loading from "./Loading";
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   const logOut = () => {
     signOut(auth);
@@ -24,11 +28,11 @@ const Header = () => {
       <li>
         {user ? (
           <>
-            <button class=" font-bold btn-ghost text-green-600">
+            <h1 className=" text-xl font-bold btn-ghost text-green-600">
               {user?.displayName}
-            </button>
+            </h1>
             <button onClick={logOut} class="font-bold btn-ghost text-red-600">
-              Sign Out
+              SIGN OUT
             </button>
           </>
         ) : (
