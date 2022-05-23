@@ -6,11 +6,13 @@ import {
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
+import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -19,7 +21,7 @@ const Login = () => {
   let signInError;
 
   if (user || googleUser) {
-    console.log(googleUser);
+    navigate("/home");
   }
   if (loading || googleLoading) {
     return <Loading></Loading>;
@@ -114,6 +116,15 @@ const Login = () => {
               value="Login"
             />
           </form>
+          <p className="font-bold">
+            <small>
+              New to
+              <span className=" text-blue-700">"The Nearby Motors" ?</span>
+              <Link className="text-red-600" to="/signup">
+                Create New Account
+              </Link>
+            </small>
+          </p>
           <div class="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
