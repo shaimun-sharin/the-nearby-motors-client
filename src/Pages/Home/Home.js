@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "./Banner";
-import NewLaunch from "./NewLaunch";
+import Clock from "./Clock";
 
 import Products from "./Products/Products";
 import Summary from "./Summary";
@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <Products></Products>
-      <NewLaunch></NewLaunch>
+      <Clock></Clock>
       <Summary></Summary>
     </div>
   );
