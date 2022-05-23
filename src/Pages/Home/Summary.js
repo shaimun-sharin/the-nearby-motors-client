@@ -2,7 +2,7 @@ import React from "react";
 
 const Summary = () => {
   return (
-    <div className="text-center">
+    <div>
       <div class="stats stats-vertical lg:stats-horizontal shadow">
         <div class="stat bg-primary">
           <div class="stat-figure text-green-600">
