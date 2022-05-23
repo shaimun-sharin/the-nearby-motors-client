@@ -1,83 +1,83 @@
 [
     {
       "_id": "628b7a4efb633d58e74301f8",
-      "img": "https://i.ibb.co/prHg7KJ/tire.webp",
+      "img": "https://i.ibb.co/XtB9Sv3/Hnet-com-image.jpg",
       "availableQuantity": 2100,
       "minimumQuantity": 243,
       "price": 22,
-      "name": "Marquez Church",
-      "about": "Consectetur elit adipisicing pariatur irure cillum laborum amet. Aliquip magna amet ullamco consequat velit. Labore ea aute ullamco est. Enim nisi adipisicing elit cupidatat elit commodo irure consectetur aliquip laborum irure reprehenderit ad. Culpa officia non velit magna et labore duis amet et pariatur. Dolor do nisi est aliqua eiusmod ipsum et consectetur eiusmod nisi amet irure excepteur. Esse ex proident occaecat ex Lorem id.\r\n"
+      "name": "Tire",
+      "about": "A tire or tyre  is a ring-shaped component that surrounds a wheel's rim to transfer a vehicle's load from the axle through the wheel to the ground and to provide traction on the surface over which the wheel travels"
     },
     {
       "_id": "628b7a4ed557157b0960be62",
-      "img": "http://placehold.it/32x32",
+      "img": "https://i.ibb.co/qMxHJK0/mud2.jpgg",
       "availableQuantity": 3164,
       "minimumQuantity": 220,
       "price": 36,
-      "name": "Britt Mcpherson",
-      "about": "Consequat nostrud exercitation sit officia veniam. Velit reprehenderit et sit reprehenderit dolore tempor non sit cupidatat sit ex fugiat sint. Ex in nostrud velit culpa in elit ipsum duis sunt sit amet pariatur non duis.\r\n"
+      "name": "Mud Guard",
+      "about": "A mudflap or mud guard is used in combination with the vehicle fender to protect the vehicle, passengers, other vehicles, and pedestrians from mud and other flying debris thrown into the air by the rotating tire"
     },
     {
       "_id": "628b7a4e5919e3ffac559e79",
-      "img": "http://placehold.it/32x32",
+      "img": "https://i.ibb.co/dcrNJT2/seat.jpg",
       "availableQuantity": 2468,
       "minimumQuantity": 284,
       "price": 26,
-      "name": "Hopper Durham",
-      "about": "Exercitation aliqua sint mollit minim consectetur. Ad labore tempor id adipisicing cillum laboris amet eu nostrud. Aliquip elit incididunt ea ad do duis sint magna officia veniam.\r\n"
+      "name": "Seat and Seat cover",
+      "about": "The most common type of motorcycle seat is a dual saddle or bench seat, which runs along the top of the chassis and is long enough for a passenger to straddle the motorcycle behind the rider."
     },
     {
       "_id": "628b7a4e7fcfbaea6878d6bc",
-      "img": "http://placehold.it/32x32",
+      "img": "https://i.ibb.co/FKJh0RN/headlight.jpg",
       "availableQuantity": 2203,
       "minimumQuantity": 385,
       "price": 27,
-      "name": "Kate Mendoza",
-      "about": "Fugiat officia aute et laborum ut eiusmod Lorem quis ad. Aliquip cupidatat commodo magna quis. Fugiat ad ipsum deserunt qui commodo. Voluptate dolor elit esse id irure deserunt. Sit minim quis fugiat voluptate ipsum anim. Consectetur laborum veniam Lorem magna anim commodo laboris.\r\n"
+      "name": "Headlight",
+      "about": "A headlight is a light attached to the front of a vehicle to illuminate the road ahead. Headlights are also often called headlamps. Using principles of reflection, it projects light and helps focus the beam"
     },
     {
       "_id": "628b7a4e8a7e1daba53b2520",
-      "img": "http://placehold.it/32x32",
+      "img": "https://i.ibb.co/TqFxJxz/brake.jpg",
       "availableQuantity": 2519,
       "minimumQuantity": 389,
       "price": 30,
-      "name": "Mcintyre Cooper",
-      "about": "Laboris adipisicing fugiat dolore ut. Elit occaecat mollit minim proident cupidatat quis. Minim et labore pariatur eiusmod. Nisi in qui do amet consectetur occaecat ad labore laborum irure mollit dolor. Exercitation ullamco fugiat exercitation et.\r\n"
+      "name": "Brake",
+      "about": "A brake is a mechanical device that inhibits motion by absorbing energy from a moving system. It is used for slowing or stopping a moving vehicle, wheel, axle, or to prevent its motion, most often accomplished by means of friction."
     },
     {
       "_id": "628b7a4e80607f72b9727ab8",
-      "img": "http://placehold.it/32x32",
+      "img": "https://i.ibb.co/QCjK8Q2/clutch.jpg",
       "availableQuantity": 2890,
       "minimumQuantity": 285,
       "price": 31,
-      "name": "Rachelle Morin",
-      "about": "Veniam dolor velit laboris aliquip velit. Minim velit esse veniam pariatur culpa irure consequat elit incididunt. Sit anim eu cupidatat deserunt esse laborum ad in tempor eiusmod anim. Voluptate esse dolor esse amet aliqua enim reprehenderit ut labore consequat proident.\r\n"
+      "name": "Clutch",
+      "about": "In an automobile, the clutch is the part that makes or breaks the relationship between an engine and a gearbox, mainly it transmits the power from the engine to wheels of the vehicle through the gearbox."
     },
     {
       "_id": "628b7a4e80607f72b9727ab8",
-      "img": "http://placehold.it/32x32",
+      "img": "https://i.ibb.co/PzN2f7Y/oil-filter.jpg",
       "availableQuantity": 2890,
       "minimumQuantity": 285,
       "price": 31,
-      "name": "Rachelle Morin",
-      "about": "Veniam dolor velit laboris aliquip velit. Minim velit esse veniam pariatur culpa irure consequat elit incididunt. Sit anim eu cupidatat deserunt esse laborum ad in tempor eiusmod anim. Voluptate esse dolor esse amet aliqua enim reprehenderit ut labore consequat proident.\r\n"
+      "name": "Oil Filter",
+      "about": "An oil filter is used to filter out contaminants within the oil. The filter's job is to cycle the clean oil back through the engine parts to keep the components running as smoothly as possible."
     },
     {
       "_id": "628b7a4e80607f72b9727ab8",
-      "img": "http://placehold.it/32x32",
+      "img": "https://i.ibb.co/2YHvzry/indicator.jpg",
       "availableQuantity": 2890,
       "minimumQuantity": 285,
       "price": 31,
-      "name": "Rachelle Morin",
-      "about": "Veniam dolor velit laboris aliquip velit. Minim velit esse veniam pariatur culpa irure consequat elit incididunt. Sit anim eu cupidatat deserunt esse laborum ad in tempor eiusmod anim. Voluptate esse dolor esse amet aliqua enim reprehenderit ut labore consequat proident.\r\n"
+      "name": "Indicator light",
+      "about": "Indicator lights are a type of illuminating device that is commonly used to signify that equipment is either receiving power or that there is some form of malfunction"
     },
     {
       "_id": "628b7a4e80607f72b9727ab8",
-      "img": "http://placehold.it/32x32",
+      "img": "https://i.ibb.co/8Bc4bFK/fuel-tank.jpg",
       "availableQuantity": 2890,
       "minimumQuantity": 285,
       "price": 31,
-      "name": "Rachelle Morin",
-      "about": "Veniam dolor velit laboris aliquip velit. Minim velit esse veniam pariatur culpa irure consequat elit incididunt. Sit anim eu cupidatat deserunt esse laborum ad in tempor eiusmod anim. Voluptate esse dolor esse amet aliqua enim reprehenderit ut labore consequat proident.\r\n"
+      "name": "Fuel Tank",
+      "about": "A fuel tank is a safe container for flammable fluids.They range in size and complexity from the small plastic tank  to the multi-chambered cryogenic Space Shuttle external tank."
     }
   ]
