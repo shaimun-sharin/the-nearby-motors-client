@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 const Purchase = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  // const quantity = product?.availableQuantity;
 
   const [user] = useAuthState(auth);
   const { minimumQuantity, availableQuantity } = product;
