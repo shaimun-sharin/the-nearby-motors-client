@@ -10,8 +10,8 @@ const Products = () => {
   }, []);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {products.map((item) => (
-        <Product key={item._id} item={item}></Product>
+      {products.map((product) => (
+        <Product key={product._id} product={product}></Product>
       ))}
     </div>
   );
