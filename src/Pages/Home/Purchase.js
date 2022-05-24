@@ -12,7 +12,26 @@ const Purchase = () => {
   }, []);
   return (
     <div>
-      <h2>This is purchase page. {product.name}</h2>
+      <div class="card card-side bg-base-100 shadow-xl">
+        <figure>
+          <img src={product.img} alt="Movie" />
+        </figure>
+        <div class="card-body">
+          <h2 class="card-title text-xl font-bold">
+            Product name-{product.name}
+          </h2>
+          <h3 className="font-bold">Price-{product.price}</h3>
+          <h3 className="font-bold">
+            Available Quantity-{product.availableQuantity}
+          </h3>
+          <h3 className="font-bold">
+            Minimum order Quantity{product.minimumQuantity}
+          </h3>
+          <div class="card-actions justify-end">
+            <button class="btn btn-primary">Watch</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
