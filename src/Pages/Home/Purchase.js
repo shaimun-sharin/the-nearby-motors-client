@@ -9,7 +9,7 @@ const Purchase = () => {
   const [product, setProduct] = useState({});
 
   const [user] = useAuthState(auth);
-  const { minimumQuantity, availableQuantity } = product;
+  const { minimumQuantity, availableQuantity, _id, name, img, price } = product;
   useEffect(() => {
     const url = `http://localhost:5000/product/${id}`;
     fetch(url)
@@ -18,24 +18,44 @@ const Purchase = () => {
   }, []);
   const handleOrder = (event) => {
     event.preventDefault();
-    const minQuantity = minimumQuantity;
-    const maxQuantity = availableQuantity;
-    const userName = event.target.name.value;
-    const product = event.target.product.value;
     const inputQuantity = event.target.quantity.value;
-    if (inputQuantity < minQuantity) {
-      toast.error(`Minimum Order ${minQuantity} pcs`);
-    } else if (inputQuantity > maxQuantity) {
-      toast.error(`Maximum Order ${maxQuantity} pcs`);
+    const order = {
+      productId: _id,
+      product: name,
+      clientName: user.displayName,
+      client: user.email,
+      quantity: inputQuantity,
+      address: event.target.address.value,
+      phone: event.target.phone.value,
+    };
+
+    if (inputQuantity < minimumQuantity) {
+      toast.error(`Minimum Order ${minimumQuantity} pcs`);
+      event.target.reset();
+    } else if (inputQuantity > availableQuantity) {
+      toast.error(`Maximum Order ${availableQuantity} pcs`);
+      event.target.reset();
+    } else {
+      fetch("http://localhost:5000/order", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(order),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          toast.success("order placed successfully");
+          event.target.reset();
+        });
     }
-    console.log(userName, product);
-    event.target.reset();
   };
 
   return (
     <div>
-      <div class="overflow-x-auto">
-        <table class="table table-bordered w-full">
+      <div class="overflow-x-auto items-center">
+        <table class="table  w-1/2">
           <thead>
             <tr>
               <th>Product Name</th>
@@ -47,17 +67,17 @@ const Purchase = () => {
           </thead>
           <tbody>
             <tr>
-              <th>{product.name}</th>
+              <th>{name}</th>
               <td>
                 <div class="avatar">
                   <div class="w-16 rounded-full">
-                    <img src={product.img} alt={product.name} />
+                    <img src={img} alt={name} />
                   </div>
                 </div>
               </td>
-              <td>{product.price}</td>
-              <td>{product.availableQuantity}</td>
-              <td>{product.minimumQuantity}</td>
+              <td>{price}</td>
+              <td>{availableQuantity}</td>
+              <td>{minimumQuantity}</td>
             </tr>
           </tbody>
         </table>
@@ -65,7 +85,7 @@ const Purchase = () => {
 
       <div>
         <h2 className="text-2xl font-bold text-center">
-          To Complete Your Order Plase Fill Up the Form Below:
+          To Complete Your Order Please Fill Up the Form Below:
         </h2>
         <form
           onSubmit={handleOrder}
@@ -75,7 +95,7 @@ const Purchase = () => {
             type="text"
             name="product"
             readOnly
-            value={product.name}
+            value={name}
             class="input font-bold input-bordered w-full max-w-xs"
           />
           <input
@@ -93,18 +113,21 @@ const Purchase = () => {
             class="input font-bold input-bordered w-full max-w-xs"
           />
           <input
+            required
             type="text"
             name="address"
             placeholder="Your address"
             class="input input-bordered w-full max-w-xs"
           />
           <input
+            required
             type="number"
             name="phone"
             placeholder="Phone number"
             class="input input-bordered w-full max-w-xs"
           />
           <input
+            required
             type="number"
             name="quantity"
             placeholder="order quantity"
