@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
+import { toast } from "react-toastify";
 
 const Purchase = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  // const quantity = product?.availableQuantity;
+
   const [user] = useAuthState(auth);
+  const { minimumQuantity, availableQuantity } = product;
   useEffect(() => {
     const url = `http://localhost:5000/product/${id}`;
     fetch(url)
@@ -15,10 +19,20 @@ const Purchase = () => {
   }, []);
   const handleOrder = (event) => {
     event.preventDefault();
+    const minQuantity = minimumQuantity;
+    const maxQuantity = availableQuantity;
     const userName = event.target.name.value;
     const product = event.target.product.value;
+    const inputQuantity = event.target.quantity.value;
+    if (inputQuantity < minQuantity) {
+      toast.error(`Minimum Order ${minQuantity} pcs`);
+    } else if (inputQuantity > maxQuantity) {
+      toast.error(`Maximum Order ${maxQuantity} pcs`);
+    }
     console.log(userName, product);
+    event.target.reset();
   };
+
   return (
     <div>
       <div class="overflow-x-auto">
@@ -49,6 +63,7 @@ const Purchase = () => {
           </tbody>
         </table>
       </div>
+
       <div>
         <h2 className="text-2xl font-bold text-center">
           To Complete Your Order Plase Fill Up the Form Below:
@@ -91,10 +106,12 @@ const Purchase = () => {
             class="input input-bordered w-full max-w-xs"
           />
           <input
-            type="text"
-            placeholder="quantity"
+            type="number"
+            name="quantity"
+            placeholder="order quantity"
             class="input input-bordered w-full max-w-xs"
           />
+
           <input
             type="submit"
             value="submit"
