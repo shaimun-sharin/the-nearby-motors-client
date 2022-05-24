@@ -12,25 +12,33 @@ const Purchase = () => {
   }, []);
   return (
     <div>
-      <div class="card card-side bg-base-100 shadow-xl">
-        <figure>
-          <img src={product.img} alt="Movie" />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title text-xl font-bold">
-            Product name-{product.name}
-          </h2>
-          <h3 className="font-bold">Price-{product.price}</h3>
-          <h3 className="font-bold">
-            Available Quantity-{product.availableQuantity}
-          </h3>
-          <h3 className="font-bold">
-            Minimum order Quantity{product.minimumQuantity}
-          </h3>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Watch</button>
-          </div>
-        </div>
+      <div class="overflow-x-auto">
+        <table class="table   w-full">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Avatar</th>
+              <th>Price</th>
+              <th>Available Quantity</th>
+              <th>Minimum Order Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>{product.name}</th>
+              <td>
+                <div class="avatar">
+                  <div class="w-16 rounded-full">
+                    <img src={product.img} alt={product.name} />
+                  </div>
+                </div>
+              </td>
+              <td>{product.price}</td>
+              <td>{product.availableQuantity}</td>
+              <td>{product.minimumQuantity}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
