@@ -1,51 +1,30 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const AddProduct = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
+  const imgStorageKey = "5ff392201d3c6c09fd7c845f02b29212";
   const onSubmit = async (data) => {
     console.log("data", data);
-    // const image = data.image[0];
-    // const formData = new FormData();
-    // formData.append("image", image);
-    // const url = `https://api.imgbb.com/1/upload?key=${imgStorageKey}`;
-    // fetch(url, {
-    //   method: "POST",
-    //   body: formData,
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => {
-    //     if (result.success) {
-    //       const img = result.data.url;
-    //       const doctor = {
-    //         name: data.name,
-    //         email: data.email,
-    //         speciality: data.speciality,
-    //         img: img,
-    //       };
-    //       fetch("http://localhost:5000/doctor", {
-    //         method: "POST",
-    //         headers: {
-    //           "content-type": "application/json",
-    //           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-    //         },
-    //         body: JSON.stringify(doctor),
-    //       })
-    //         .then((res) => res.json())
-    //         .then((inserted) => {
-    //           if (inserted.insertedId) {
-    //             toast("Doctor added successfuly");
-    //             reset();
-    //           } else {
-    //             toast.error("Failed to add doctor");
-    //           }
-    //         });
-    //     }
-    //   });
+    const image = data.img[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imgStorageKey}`;
+    console.log(url);
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log("imgbb", result);
+      });
   };
 
   return (
