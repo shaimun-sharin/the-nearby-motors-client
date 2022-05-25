@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "./Banner";
 import Clock from "./Clock";
+import Form from "./Form";
 
 import Products from "./Products/Products";
 import Summary from "./Summary";
@@ -12,6 +13,7 @@ const Home = () => {
       <Products></Products>
       <Clock></Clock>
       <Summary></Summary>
+      <Form></Form>
     </div>
   );
 };
