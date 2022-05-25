@@ -1,23 +1,28 @@
 import React from "react";
 import auth from "../../firebase.init";
 import {
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import Loading from "../Shared/Loading";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
+    getValues,
   } = useForm();
+
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
   let signInError;
@@ -25,7 +30,7 @@ const Login = () => {
   if (user || googleUser) {
     navigate(from, { replace: true });
   }
-  if (loading || googleLoading) {
+  if (loading || googleLoading || sending) {
     return <Loading></Loading>;
   }
 
@@ -39,6 +44,18 @@ const Login = () => {
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
   };
+
+  const resetPassword = async () => {
+    const email = getValues("email");
+    console.log(email);
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast.success("Sent email");
+    } else {
+      toast.error("please enter your email");
+    }
+  };
+
   return (
     <div className="flex h-screen justify-center items-center">
       <div class="card w-96 bg-base-100 shadow-xl">
@@ -127,6 +144,9 @@ const Login = () => {
               </Link>
             </small>
           </p>
+          <button onClick={resetPassword} className="btn  btn-link">
+            <small>Forgot Password?</small>
+          </button>
           <div class="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}

@@ -12,10 +12,30 @@ const Purchase = () => {
   const { minimumQuantity, availableQuantity, _id, name, img, price } = product;
   useEffect(() => {
     const url = `http://localhost:5000/product/${id}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
+    fetch(url).then((res) => res.json().then((data) => setProduct(data)));
   }, []);
+
+  // /
+  //   console.log(Number(inputQuantity));
+  //   // const { availableQuantity } = product;
+  //   console.log(Number(availableQuantity));
+  //   const newQuantity = Number(availableQuantity) - Number(inputQuantity);
+  //   console.log(newQuantity);
+
+  //   const url = `http://localhost:5000/product/${id}`;
+  //   fetch(url, {
+  //     method: "PUT",
+  //     headers: {
+  //       "content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(newQuantity),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       // setReload(!reload);
+  //       console.log("success", data);
+  //     });
+  // };
   const handleOrder = (event) => {
     event.preventDefault();
     const inputQuantity = event.target.quantity.value;
@@ -50,6 +70,7 @@ const Purchase = () => {
           event.target.reset();
         });
     }
+    // handleQuantity(inputQuantity, availableQuantity);
   };
 
   return (
