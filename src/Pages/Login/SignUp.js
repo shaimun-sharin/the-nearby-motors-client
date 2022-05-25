@@ -7,6 +7,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import useToken from "../../hooks/UseToken";
 import Loading from "../Shared/Loading";
 
 const SignUp = () => {
@@ -23,6 +24,7 @@ const SignUp = () => {
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   const navigate = useNavigate();
+  const [token] = useToken(user || googleUser);
 
   let signInError;
 
@@ -39,7 +41,7 @@ const SignUp = () => {
       </p>
     );
   }
-  if (user || googleUser) {
+  if (token) {
     navigate("/home");
     console.log(user);
   }

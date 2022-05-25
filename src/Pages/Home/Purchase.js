@@ -44,6 +44,7 @@ const Purchase = () => {
       product: name,
       clientName: user.displayName,
       client: user.email,
+      price: price * inputQuantity,
       quantity: inputQuantity,
       address: event.target.address.value,
       phone: event.target.phone.value,
@@ -145,6 +146,13 @@ const Purchase = () => {
             type="number"
             name="phone"
             placeholder="Phone number"
+            class="input input-bordered w-full max-w-xs"
+          />
+          <input
+            required
+            type="number"
+            name="price"
+            value={price}
             class="input input-bordered w-full max-w-xs"
           />
           <input
