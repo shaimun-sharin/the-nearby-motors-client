@@ -23,6 +23,7 @@ import AddProduct from "./Pages/Dashboard/AddProduct";
 
 import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import ManageOrders from "./Pages/Dashboard/ManageOrders";
+import NotFound from "./Pages/NotFound/Notfound";
 
 function App() {
   return (
@@ -90,6 +91,7 @@ function App() {
 
         <Route path="signup" element={<SignUp></SignUp>}></Route>
         <Route path="form" element={<Form></Form>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer></ToastContainer>
       <Footer></Footer>
