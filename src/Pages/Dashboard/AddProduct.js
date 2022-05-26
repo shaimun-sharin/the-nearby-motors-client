@@ -23,7 +23,34 @@ const AddProduct = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log("imgbb", result);
+        if (result.success) {
+          const img = result.data.url;
+          const product = {
+            name: data.name,
+            about: data.about,
+            availableQuantity: data.availableQuantity,
+            minimumQuantity: data.minimumQuantity,
+            price: data.price,
+            img: img,
+          };
+          fetch("http://localhost:5000/product", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(product),
+          })
+            .then((res) => res.json())
+            .then((inserted) => {
+              if (inserted.insertedId) {
+                toast.success("Product added successfuly");
+                reset();
+              } else {
+                toast.error("Failed to add product");
+              }
+            });
+        }
       });
   };
 
@@ -31,7 +58,7 @@ const AddProduct = () => {
     <div>
       <h5> add a product</h5>
       <div className="flex  justify-center items-center">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className="mb-3" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full max-w-xs">
             <label className="label">
               <span className="label-text">Name</span>
@@ -170,7 +197,7 @@ const AddProduct = () => {
           </div>
 
           <input
-            className="btn w-full max-w-xs text-white"
+            className="btn btn-primary w-full max-w-xs "
             type="submit"
             value="Add Product"
           />
