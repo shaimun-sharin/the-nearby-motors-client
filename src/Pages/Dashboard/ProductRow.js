@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductRow = ({ product, index }) => {
+const ProductRow = ({ product, index, setDeleteProduct }) => {
   const { img, name } = product;
   return (
     <tr>
@@ -15,7 +15,7 @@ const ProductRow = ({ product, index }) => {
       <td>{name}</td>
       <td>
         <label
-          // onClick={() => setDeleteDoctor(doctor)}
+          onClick={() => setDeleteProduct(product)}
           for="delete-modal"
           class="btn btn-xs btn-error"
         >
