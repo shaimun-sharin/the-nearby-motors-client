@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Order = ({ order, refetch, setDeleteOrder }) => {
-  const { product, client, paid } = order;
+  const [buttonText, setButtonText] = useState("pending");
+  const { product, client, paid, _id } = order;
+
+  function handleClick() {
+    setButtonText("Shipped");
+  }
+
   return (
     <tr>
       <td>{product}</td>
@@ -19,6 +25,9 @@ const Order = ({ order, refetch, setDeleteOrder }) => {
         )}
         {paid && (
           <div className="font-bold">
+            <button onClick={handleClick} className=" btn btn-primary btn-xs">
+              {buttonText}
+            </button>
             <p>
               <span className="text-success">Paid</span>
             </p>

@@ -27,6 +27,8 @@ import NotFound from "./Pages/NotFound/Notfound";
 import Payment from "./Pages/Dashboard/Payment";
 import Review from "./Pages/Home/Review";
 import WhyChoose from "./Pages/WhyChoose/WhyChoose";
+import MyPortfolio from "./Pages/Portfolio/MyPortfolio";
+import Blogs from "./Pages/Blogs/Blogs";
 
 function App() {
   return (
@@ -48,6 +50,8 @@ function App() {
           }
         ></Route>
         <Route path="login" element={<Login></Login>}></Route>
+        <Route path="blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="portfolio" element={<MyPortfolio></MyPortfolio>}></Route>
 
         <Route
           path="dashboard"

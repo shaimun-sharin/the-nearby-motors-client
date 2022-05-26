@@ -21,10 +21,10 @@ const Header = () => {
         <Link to="home">Home</Link>
       </li>
       <li>
-        <Link to="summary">Summary</Link>
+        <Link to="portfolio">My Portfolio</Link>
       </li>
       <li>
-        <Link to="reviews">User Reviews</Link>
+        <Link to="blogs">Blogs</Link>
       </li>
       {user && (
         <li>

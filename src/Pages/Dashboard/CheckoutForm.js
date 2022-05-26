@@ -66,6 +66,7 @@ const CheckoutForm = ({ order }) => {
       const payment = {
         order: _id,
         transactionId: paymentIntent.id,
+        status: paymentIntent.status,
       };
       fetch(`https://infinite-ocean-88607.herokuapp.com/order/${_id}`, {
         method: "PATCH",
