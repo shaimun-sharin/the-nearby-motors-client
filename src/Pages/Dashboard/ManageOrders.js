@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../Shared/Loading";
+import DeleteOrder from "./DeleteOrder";
 import Order from "./Order";
 
 const ManageOrders = () => {
+  const [deleteOrder, setDeleteOrder] = useState(null);
   const {
     data: order,
     isLoading,
@@ -34,11 +36,23 @@ const ManageOrders = () => {
           </thead>
           <tbody>
             {order?.map((order, index) => (
-              <Order key={order._id} order={order} refetch={refetch}></Order>
+              <Order
+                key={order._id}
+                order={order}
+                refetch={refetch}
+                setDeleteOrder={setDeleteOrder}
+              ></Order>
             ))}
           </tbody>
         </table>
       </div>
+      {deleteOrder && (
+        <DeleteOrder
+          deleteOrder={deleteOrder}
+          refetch={refetch}
+          setDeleteOrder={setDeleteOrder}
+        ></DeleteOrder>
+      )}
     </div>
   );
 };

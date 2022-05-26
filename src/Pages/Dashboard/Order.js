@@ -1,6 +1,6 @@
 import React from "react";
 
-const Order = ({ order }) => {
+const Order = ({ order, refetch, setDeleteOrder }) => {
   const { product, client, paid } = order;
   return (
     <tr>
@@ -8,7 +8,15 @@ const Order = ({ order }) => {
 
       <td>{client}</td>
       <td>
-        {!paid && <button className="btn btn-xs btn-error">Cancel</button>}
+        {!paid && (
+          <label
+            onClick={() => setDeleteOrder(order)}
+            for="delete-modal"
+            class="btn btn-xs btn-error"
+          >
+            Delete
+          </label>
+        )}
         {paid && (
           <div className="font-bold">
             <p>
