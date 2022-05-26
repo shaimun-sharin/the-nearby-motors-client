@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const MyOrders = () => {
-  const [orders, setOrders] = useState([]);
+  const [order, setOrder] = useState([]);
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
   useEffect(() => {
@@ -25,12 +25,12 @@ const MyOrders = () => {
           }
           return res.json();
         })
-        .then((data) => setOrders(data));
+        .then((data) => setOrder(data));
     }
   }, [user]);
   return (
     <div>
-      <h2>this is my orders{orders.length}</h2>
+      <h2>this is my orders{order.length}</h2>
       <div>
         <div class="overflow-x-auto">
           <table class="table w-full">
@@ -45,7 +45,7 @@ const MyOrders = () => {
               </tr>
             </thead>
             <tbody>
-              {orders?.map((order, index) => (
+              {order?.map((order, index) => (
                 <tr>
                   <td>{index + 1}</td>
                   <td>{order.client}</td>
@@ -61,7 +61,17 @@ const MyOrders = () => {
                       </Link>
                     )}
                     {order.price && order.paid && (
-                      <span className="text-success">Paid</span>
+                      <div className="font-bold">
+                        <p>
+                          <span className="text-success">Paid</span>
+                        </p>
+                        <p>
+                          Transaction id:
+                          <span className="text-green-700">
+                            {order.transactionId}
+                          </span>
+                        </p>
+                      </div>
                     )}
                   </td>
                 </tr>
