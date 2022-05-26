@@ -11,7 +11,7 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery("products", () =>
-    fetch("http://localhost:5000/product", {
+    fetch("https://infinite-ocean-88607.herokuapp.com/product", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },

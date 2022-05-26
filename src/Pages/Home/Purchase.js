@@ -11,7 +11,7 @@ const Purchase = () => {
   const [user] = useAuthState(auth);
   const { minimumQuantity, availableQuantity, _id, name, img, price } = product;
   useEffect(() => {
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://infinite-ocean-88607.herokuapp.com/product/${id}`;
     fetch(url).then((res) => res.json().then((data) => setProduct(data)));
   }, []);
 
@@ -22,7 +22,7 @@ const Purchase = () => {
   //   const newQuantity = Number(availableQuantity) - Number(inputQuantity);
   //   console.log(newQuantity);
 
-  //   const url = `http://localhost:5000/product/${id}`;
+  //   const url = `https://infinite-ocean-88607.herokuapp.com/product/${id}`;
   //   fetch(url, {
   //     method: "PUT",
   //     headers: {
@@ -57,7 +57,7 @@ const Purchase = () => {
       toast.error(`Maximum Order ${availableQuantity} pcs`);
       event.target.reset();
     } else {
-      fetch("http://localhost:5000/order", {
+      fetch("https://infinite-ocean-88607.herokuapp.com/order", {
         method: "POST",
         headers: {
           "content-type": "application/json",
