@@ -6,8 +6,8 @@
     align-items: center;
     height: 150px;
     width: 350px;
-    background: linear-gradient(270deg,#051817,#0e3839);
-    color :#06f1f6;
+    background: linear-gradient(270deg, #FFE4E1, #FFB6C1);
+    color :black;
     text-shadow: 1px 1px 7px;
     border: 1px solid silver;
     border-radius: 15px;
@@ -24,6 +24,6 @@
     font-size: 2rem;
 }
 .clock section small {
-  color: silver;
+  color: gray;
   text-shadow: none;
 }

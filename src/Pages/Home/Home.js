@@ -4,6 +4,7 @@ import Clock from "./Clock";
 import Form from "./Form";
 
 import Products from "./Products/Products";
+import Sale from "./Sale";
 import Summary from "./Summary";
 
 const Home = () => {
@@ -11,7 +12,8 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <Products></Products>
-      <Clock></Clock>
+      <Sale></Sale>
+
       <Summary></Summary>
       <Form></Form>
     </div>

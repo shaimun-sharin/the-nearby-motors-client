@@ -6,7 +6,7 @@ import auth from "../../firebase.init";
 import Loading from "./Loading";
 
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   if (loading) {
     return <Loading></Loading>;
   }
