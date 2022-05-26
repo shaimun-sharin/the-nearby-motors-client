@@ -13,7 +13,7 @@ import Footer from "./Pages/Shared/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import Form from "./Pages/Home/Form";
+
 import MyOrders from "./Pages/Dashboard/MyOrders";
 import AddReview from "./Pages/Dashboard/AddReview";
 import MyProfile from "./Pages/Dashboard/MyProfile";
@@ -25,6 +25,7 @@ import ManageProducts from "./Pages/Dashboard/ManageProducts";
 import ManageOrders from "./Pages/Dashboard/ManageOrders";
 import NotFound from "./Pages/NotFound/Notfound";
 import Payment from "./Pages/Dashboard/Payment";
+import Review from "./Pages/Home/Review";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="home" element={<Home></Home>}></Route>
+        <Route path="reviews" element={<Review></Review>}></Route>
         <Route path="summary" element={<Summary></Summary>}></Route>
         <Route path="contact" element={<Contact></Contact>}></Route>
         <Route
@@ -92,7 +94,7 @@ function App() {
         </Route>
 
         <Route path="signup" element={<SignUp></SignUp>}></Route>
-        <Route path="form" element={<Form></Form>}></Route>
+
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer></ToastContainer>

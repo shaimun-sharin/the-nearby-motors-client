@@ -1,7 +1,5 @@
 import React from "react";
 import Banner from "./Banner";
-import Clock from "./Clock";
-import Form from "./Form";
 
 import Products from "./Products/Products";
 import Sale from "./Sale";
@@ -13,9 +11,7 @@ const Home = () => {
       <Banner></Banner>
       <Products></Products>
       <Sale></Sale>
-
       <Summary></Summary>
-      <Form></Form>
     </div>
   );
 };
