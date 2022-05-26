@@ -1,4 +1,5 @@
 import React from "react";
+import WhyChoose from "../WhyChoose/WhyChoose";
 import Banner from "./Banner";
 
 import Products from "./Products/Products";
@@ -14,6 +15,7 @@ const Home = () => {
       <Sale></Sale>
       <Review></Review>
       <Summary></Summary>
+      <WhyChoose></WhyChoose>
     </div>
   );
 };

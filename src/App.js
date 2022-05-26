@@ -26,6 +26,7 @@ import ManageOrders from "./Pages/Dashboard/ManageOrders";
 import NotFound from "./Pages/NotFound/Notfound";
 import Payment from "./Pages/Dashboard/Payment";
 import Review from "./Pages/Home/Review";
+import WhyChoose from "./Pages/WhyChoose/WhyChoose";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="home" element={<Home></Home>}></Route>
+        <Route path="whyChoose" element={<WhyChoose></WhyChoose>}></Route>
         <Route path="reviews" element={<Review></Review>}></Route>
         <Route path="summary" element={<Summary></Summary>}></Route>
         <Route path="contact" element={<Contact></Contact>}></Route>
