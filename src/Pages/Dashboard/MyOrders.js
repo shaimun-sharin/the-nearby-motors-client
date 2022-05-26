@@ -65,9 +65,6 @@ const MyOrders = () => {
                     )}
                     {order.price && order.paid && (
                       <div className="font-bold">
-                        <button className=" btn btn-error btn-xs">
-                          Pending
-                        </button>
                         <p>
                           <span className="text-success">Paid</span>
                         </p>

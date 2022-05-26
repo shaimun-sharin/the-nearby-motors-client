@@ -33,9 +33,6 @@ const User = ({ user, refetch }) => {
           </button>
         )}
       </td>
-      <td>
-        <button class="btn btn-xs btn-error">Remove User</button>
-      </td>
     </tr>
   );
 };

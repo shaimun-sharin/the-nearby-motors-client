@@ -28,7 +28,6 @@ const AllUsers = () => {
             <tr>
               <th>User Email</th>
               <th>Admin</th>
-              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
