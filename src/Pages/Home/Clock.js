@@ -8,7 +8,7 @@ const Clock = () => {
   const [timerSeconds, setTimerSeconds] = useState();
   let interval;
   const startTimer = () => {
-    const countDownDate = new Date("June 01, 2022").getTime();
+    const countDownDate = new Date("June 01, 2023").getTime();
     interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = countDownDate - now;

@@ -11,7 +11,7 @@ const Product = ({ product }) => {
 
   return (
     <div>
-      <div class="card lg:max-w-lg lg:max-h-lg bg-base-100 shadow-xl">
+      <div class="card  lg:max-w-lg lg:max-h-lg bg-base-100 shadow-xl">
         <figure class="px-10 pt-10">
           <img src={img} alt="Motor Parts" class="rounded-xl" />
         </figure>

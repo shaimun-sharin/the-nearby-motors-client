@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "./Loading";
 
@@ -18,21 +18,21 @@ const Header = () => {
   const navItems = (
     <>
       <li>
-        <Link to="home">Home</Link>
+        <NavLink to="home">Home</NavLink>
       </li>
       <li>
-        <Link to="portfolio">My Portfolio</Link>
+        <NavLink to="portfolio">My Portfolio</NavLink>
       </li>
       <li>
-        <Link to="blogs">Blogs</Link>
+        <NavLink to="blogs">Blogs </NavLink>
       </li>
       {user && (
         <li>
-          <Link to="dashboard">Dashboard</Link>
+          <NavLink to="dashboard">Dashboard</NavLink>
         </li>
       )}
       <li>
-        <Link to="contact">Contact</Link>
+        <NavLink to="contact">Contact</NavLink>
       </li>
       <li>
         {user ? (
@@ -40,18 +40,21 @@ const Header = () => {
             <h1 className=" text-xl font-bold btn-ghost text-green-600">
               {user?.displayName}
             </h1>
-            <button onClick={logOut} class="font-bold btn-ghost text-red-600">
+            <button
+              onClick={logOut}
+              class="font-bold btn-outline btn-ghost text-red-600"
+            >
               SIGN OUT
             </button>
           </>
         ) : (
-          <Link to="login">LogIn</Link>
+          <NavLink to="login">LogIn</NavLink>
         )}
       </li>
     </>
   );
   return (
-    <div class="navbar bg-base-100">
+    <div class="navbar sticky top-0 px-10 z-50 bg-base-100">
       <div class="navbar-start">
         <div class="dropdown">
           <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -72,7 +75,7 @@ const Header = () => {
           </label>
           <ul
             tabindex="0"
-            class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-primary rounded-box w-52"
+            class="menu menu-compact dropdown-content mt-3 px-5 shadow bg-primary rounded-box w-52"
           >
             {navItems}
           </ul>
